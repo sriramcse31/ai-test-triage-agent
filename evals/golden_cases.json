@@ -1,0 +1,62 @@
+[
+  {
+    "id": "timeout_01",
+    "name": "Login Timeout - Hidden Element",
+    "log_file": "demo/sample_ci_failures/test_login_timeout.log",
+    "expected": {
+      "classification": "timeout",
+      "flaky_probability_range": [0.1, 0.4],
+      "should_contain_keywords": ["timeout", "wait", "hidden", "display"],
+      "suggested_actions_should_include": [
+        "increase wait timeout",
+        "waitForLoadState"
+      ],
+      "min_confidence": 0.6
+    }
+  },
+  {
+    "id": "selector_01",
+    "name": "Selector Changed - UI Refactor",
+    "log_file": "demo/sample_ci_failures/test_selector_changed.log",
+    "expected": {
+      "classification": "selector_issue",
+      "flaky_probability_range": [0.0, 0.2],
+      "should_contain_keywords": ["selector", "element", "not found", "changed"],
+      "suggested_actions_should_include": [
+        "update selector",
+        "UI"
+      ],
+      "min_confidence": 0.7
+    }
+  },
+  {
+    "id": "network_01",
+    "name": "Network Flakiness - Intermittent Timeout",
+    "log_file": "demo/sample_ci_failures/test_flaky_network.log",
+    "expected": {
+      "classification": "network_instability",
+      "flaky_probability_range": [0.5, 1.0],
+      "should_contain_keywords": ["network", "connection", "timeout", "retry"],
+      "suggested_actions_should_include": [
+        "retry",
+        "backoff"
+      ],
+      "min_confidence": 0.5
+    }
+  },
+  {
+    "id": "data_01",
+    "name": "Data Setup - Duplicate Key Constraint",
+    "log_file": "demo/sample_ci_failures/test_data_issue.log",
+    "expected": {
+      "classification": "data_setup_issue",
+      "flaky_probability_range": [0.0, 0.3],
+      "should_contain_keywords": ["database", "duplicate", "constraint", "data"],
+      "suggested_actions_should_include": [
+        "cleanup",
+        "unique"
+      ],
+      "min_confidence": 0.7
+    }
+  }
+]

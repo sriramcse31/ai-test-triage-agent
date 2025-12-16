@@ -1,0 +1,59 @@
+[
+  {
+    "test_name": "test_user_login",
+    "error_message": "TimeoutError: selector '#user-dashboard' not visible",
+    "error_type": "TimeoutError",
+    "log_snippet": "waiting for selector '#user-dashboard' to be visible. Element is hidden.",
+    "timestamp": "2024-01-10T10:00:00",
+    "duration_seconds": 32.0,
+    "retry_count": 0,
+    "artifacts": [
+      "login_fail.png"
+    ],
+    "resolution": {
+      "root_cause": "Dashboard renders with display:none initially, needs animation time",
+      "classification": "timeout",
+      "fix_applied": "Increased wait timeout to 60s and added waitForLoadState('networkidle')",
+      "fixed_by": "engineer@example.com",
+      "fixed_at": "2024-01-10T14:00:00",
+      "confidence": 0.95
+    },
+    "flaky_score": 0.2
+  },
+  {
+    "test_name": "test_add_to_cart",
+    "error_message": "Element with selector button[data-test-id='add-cart'] not found",
+    "error_type": "SelectorError",
+    "log_snippet": "Available buttons: .btn-primary.add-to-cart. Test selector no longer matches.",
+    "timestamp": "2024-01-12T15:30:00",
+    "duration_seconds": 31.0,
+    "retry_count": 0,
+    "artifacts": [],
+    "resolution": {
+      "root_cause": "UI refactor changed data-test-id to class-based selector",
+      "classification": "selector_issue",
+      "fix_applied": "Updated selector to .btn-primary.add-to-cart",
+      "fixed_by": "qa@example.com",
+      "ticket_reference": "JIRA-1234",
+      "confidence": 1.0
+    },
+    "flaky_score": 0.0
+  },
+  {
+    "test_name": "test_api_search",
+    "error_message": "RequestError: connect ETIMEDOUT",
+    "error_type": "NetworkError",
+    "log_snippet": "Failed to connect to API. Succeeded on retry 2/3.",
+    "timestamp": "2024-01-13T09:15:00",
+    "duration_seconds": 15.0,
+    "retry_count": 2,
+    "artifacts": [],
+    "resolution": {
+      "root_cause": "Intermittent network latency in CI environment",
+      "classification": "network_instability",
+      "fix_applied": "Added retry logic with exponential backoff",
+      "confidence": 0.7
+    },
+    "flaky_score": 0.85
+  }
+]
