@@ -1,6 +1,8 @@
 # 🤖 AI Test Triage Agent
 
-Autonomous AI-powered agent that analyzes CI/CD test failures, detects flakiness, explains root causes, and suggests actionable fixes.
+There are ongoing debates in the test automation community on whether failing automation scripts should be auto-healed or left for engineers to fix.
+
+This project intentionally takes the second approach. Instead of automatically modifying tests, the AI Test Triage Agent focuses on assisting engineers by analyzing failures, reducing log-analysis effort, explaining likely root causes, and suggesting potential fixes — while keeping humans in control of code changes.
 
 ## 🎯 Problem Statement
 
